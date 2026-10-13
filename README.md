@@ -17,6 +17,8 @@ Site estático e responsivo, em português (PT-BR), para consulta do roteiro de 
 
 A página pública não permite adicionar, editar, excluir ou importar registros. Todas as alterações são feitas no código e publicadas no repositório pelo Codex. Datas, horários e reservas não confirmados permanecem identificados como pendentes.
 
+Hotéis são identificados apenas de forma genérica por cidade ou região. Telefones, códigos de reserva, identificadores pessoais e valores financeiros privados não fazem parte da versão pública. Consulte também [PRIVACY.md](PRIVACY.md).
+
 ## Dados
 
 O bloco `<script id="seed" type="application/json">` de `index.html` preserva o roteiro, os detalhes de Alishan e os custos originais. As listas de reservas e compras também ficam no mesmo arquivo, sem armazenamento externo.
@@ -28,6 +30,8 @@ O botão de backup gera uma cópia completa dos dados visíveis no código. Valo
 O site é publicado pela branch `main`, pasta raiz, em:
 
 https://codextests2.github.io/roteiro-jp-tw/
+
+O HTML usa `noindex, nofollow` para desencorajar indexação por mecanismos de busca. O endereço continua tecnicamente público para quem possuir o link.
 
 ## Referências de UX
 
