@@ -1,40 +1,38 @@
-# Japão & Taiwan — roteiro interativo
+# Japão & Taiwan — Travel Board
 
-Página responsiva em português, baseada no roteiro de dezembro de 2026 da Monica. Funciona sem instalação e não depende de bibliotecas externas.
+Site estático e responsivo, em português (PT-BR), para consulta do roteiro de dezembro de 2026. Funciona diretamente no navegador e no GitHub Pages, sem instalação, banco de dados, login ou bibliotecas externas.
 
-## Usar
+## Experiência
 
-Abra `index.html` no navegador, ou acesse a página depois de publicar no GitHub Pages.
+- Dashboard com partida, destinos, duração e reservas pendentes.
+- Roteiro diário com navegação por data e linha do tempo vertical.
+- Atividades separadas visualmente em passeio, alimentação, transporte e hospedagem.
+- Gestão de reservas, lista de compras, roteiro detalhado de Alishan e orçamento.
+- Links de pesquisa no Google Maps, sem uso de API paga.
+- Filtros por destino, categoria, prioridade e status.
+- Backup JSON completo e exportação CSV da seção visível.
+- Navegação inferior otimizada para celulares.
 
-- Roteiro e programação detalhada de Alishan.
-- Busca, filtros por destino e planejamento.
-- Adicionar, editar e excluir atividades ou custos.
-- Notas de Alishan editáveis; orçamento antigo preservado em seção de referência.
-- Totais de custos separados por moeda (JPY, TWD, BRL e USD), sem conversão automática.
-- Salvamento automático no armazenamento local do navegador.
-- Backup JSON completo, importação e exportação CSV por seção.
+## Somente consulta
 
-O navegador guarda as edições **somente naquele aparelho e naquela origem**. A página não altera arquivos do repositório nem a planilha. Para transferir as edições, baixe o backup no aparelho de origem e importe no outro. Limpar os dados do navegador pode remover as edições; mantenha um backup. Os dados iniciais só aparecem quando não há uma versão local salva.
+A página pública não permite adicionar, editar, excluir ou importar registros. Todas as alterações são feitas no código e publicadas no repositório pelo Codex. Datas, horários e reservas não confirmados permanecem identificados como pendentes.
 
-Abrir como arquivo local pode restringir a persistência em alguns navegadores. A página informa quando não consegue salvar. Use o backup para conservar as alterações.
+## Dados
 
-## Publicar no GitHub Pages
+O bloco `<script id="seed" type="application/json">` de `index.html` preserva o roteiro, os detalhes de Alishan e os custos originais. As listas de reservas e compras também ficam no mesmo arquivo, sem armazenamento externo.
 
-1. Crie um repositório ou selecione um existente para este roteiro. A conexão atual do ChatGPT precisa ter acesso ao repositório para enviar os arquivos diretamente.
-2. Envie `index.html` e `.nojekyll` para a raiz do repositório. `README.md` é opcional.
-3. Em **Settings → Pages → Build and deployment**, selecione **Deploy from a branch**, a branch que contém os arquivos (normalmente `main`) e **/(root)**. Salve.
-4. Aguarde o GitHub mostrar o endereço da página. Abra esse endereço no celular ou computador.
+O botão de backup gera uma cópia completa dos dados visíveis no código. Valores em JPY, TWD, BRL e USD são mantidos separados, sem conversão automática.
 
-Documentação oficial: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+## Publicação
 
-A disponibilidade do Pages em repositórios privados depende do plano GitHub. O endereço publicado pode ser acessível ao público; o roteiro contém datas e hotéis. Repositório privado não significa automaticamente página privada.
+O site é publicado pela branch `main`, pasta raiz, em:
 
-## Atualizar dados iniciais no repositório
+https://codextests2.github.io/roteiro-jp-tw/
 
-O bloco `<script id="seed" type="application/json">` dentro de `index.html` contém os dados iniciais. Para atualizar a versão para novos leitores, substitua esse JSON por um backup exportado (sem alterar a estrutura `version: 1`). Ao inserir manualmente, escape `<` como `\u003c` dentro do JSON para não encerrar a tag de script.
+## Referências de UX
 
-Uma edição feita na interface fica no navegador e não publica mudanças para outras pessoas. Sincronização automática entre aparelhos exige uma etapa adicional com login e armazenamento compartilhado.
+O design usa padrões gerais observados em projetos de planejamento de viagem: dashboard, navegação por dia, linha do tempo, cartões de atividade, status e navegação móvel. Nenhum código dos projetos de referência foi copiado. `travel-planner` usa MIT; `turistar` usa AGPL-3.0; não foi possível confirmar uma licença no repositório `travel-itinerary-app`, portanto ele foi usado apenas como referência conceitual.
 
-## Verificação realizada
+## Verificação
 
-Código JavaScript validado sintaticamente e regras de dados verificadas: importação, datas, filtros, inserção, edição, exclusão, totais por moeda e proteção de exportação CSV. Sem dependências externas, tokens ou credenciais no projeto. A interface não foi testada em navegador nesta sessão.
+O HTML e o JavaScript são validados sintaticamente. Testes automatizados com Chrome cobrem as versões móvel (390 × 844) e desktop (1440 × 1000), navegação entre páginas, linha do tempo, datas, links do Google Maps e ausência de controles públicos de edição.
